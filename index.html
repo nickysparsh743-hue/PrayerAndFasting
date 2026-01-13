@@ -530,7 +530,27 @@
 </head>
 
 <body>
- <!-- Header -->
+    <!-- Music Player -->
+    <div class="music-player">
+        <div class="music-info">
+            <i class="fas fa-music"></i>
+            <span>Worship Music</span>
+        </div>
+        <div class="music-controls">
+            <button class="music-btn" id="playBtn">
+                <i class="fas fa-play"></i>
+            </button>
+            <button class="music-btn" id="pauseBtn">
+                <i class="fas fa-pause"></i>
+            </button>
+        </div>
+        <div class="volume-control">
+            <i class="fas fa-volume-up"></i>
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+        </div>
+    </div>
+
+    <!-- Header -->
     <header>
         <div class="header-content">
             <div class="logo">
