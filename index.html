@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21 Days of Prayer & Fasting 2026 - PCEA Makupa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #0f3460;
+            --secondary: #16213e;
+            --accent: #4cc9f0;
+            --light: #f1f1f1;
+            --gold: #ffd700;
+            --success: #2ecc71;
+            --scripture: #e74c3c;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0c2461 0%, #1e3799 50%, #0a3d62 100%);
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-attachment: fixed;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(15, 52, 96, 0.95);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--accent);
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            background: linear-gradient(to right, var(--accent), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+
+        .logo span {
+            font-size: 1rem;
+            color: var(--light);
+            opacity: 0.9;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: var(--accent);
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.95)), url('https://images.unsplash.com/photo-1518834103328-93d45986dce1?q=80&w=1000');
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 3rem;
+            border-bottom: 5px solid var(--gold);
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .theme {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .dates {
+            font-size: 1.5rem;
+            background: rgba(255, 215, 0, 0.2);
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            border: 2px solid var(--gold);
+            margin-bottom: 2rem;
+        }
+
+        .verse-box {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            border-left: 5px solid var(--accent);
+            font-style: italic;
+            text-align: left;
+        }
+
+        .verse-ref {
+            text-align: right;
+            font-weight: bold;
+            color: var(--gold);
+            margin-top: 1rem;
+        }
+
+        /* Current Day Section */
+        .current-day {
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+            padding: 0 2rem;
+        }
+
+        .current-day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .current-day-header h3 {
+            font-size: 2rem;
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .today-date {
+            font-size: 1.3rem;
+            background: var(--secondary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            border: 2px solid var(--accent);
+        }
+
+        .day-card {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--secondary);
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-top: 8px solid var(--accent);
+            margin-bottom: 2rem;
+        }
+
+        .day-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .districts,
+        .scripture,
+        .prayer-points {
+            margin-bottom: 1.5rem;
+        }
+
+        .districts h4,
+        .scripture h4,
+        .prayer-points h4 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.3rem;
+        }
+
+        .district-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .district-tag {
+            background: var(--secondary);
+            color: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .scripture-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .scripture-box {
+            background: rgba(231, 76, 60, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--scripture);
+        }
+
+        .scripture-ref {
+            font-weight: bold;
+            color: var(--scripture);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+        }
+
+        .scripture-text {
+            line-height: 1.6;
+            font-style: italic;
+            font-size: 1.05rem;
+        }
+
+        .prayer-points ul {
+            list-style-type: none;
+            padding-left: 1rem;
+        }
+
+        .prayer-points li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .prayer-points li:before {
+            content: "✝";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Schedule Navigation */
+        .schedule-nav {
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+            padding: 0 2rem;
+        }
+
+        .schedule-nav h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .day-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .day-filter {
+            padding: 0.7rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid transparent;
+            border-radius: 30px;
+            color: var(--light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .day-filter:hover,
+        .day-filter.active {
+            background: var(--accent);
+            color: var(--secondary);
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .schedule-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .schedule-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .schedule-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .schedule-card.active {
+            background: rgba(76, 201, 240, 0.2);
+            border-color: var(--accent);
+        }
+
+        .schedule-date {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .schedule-focus {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+        }
+
+        .schedule-groups {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(15, 52, 96, 0.95);
+            padding: 15px;
+            border-radius: 50px;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            border: 2px solid var(--accent);
+        }
+
+        .music-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--light);
+            font-weight: 500;
+        }
+
+        .music-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .music-btn {
+            background: var(--accent);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            color: var(--secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .music-btn:hover {
+            background: var(--gold);
+            transform: scale(1.1);
+        }
+
+        .volume-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .volume-control input {
+            width: 80px;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 25, 47, 0.95);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+            border-top: 3px solid var(--gold);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .church-name {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .footer-notes {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            nav ul {
+                justify-content: center;
+            }
+
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+
+            .theme {
+                font-size: 1.5rem;
+                flex-direction: column;
+            }
+
+            .current-day-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .music-player {
+                bottom: 10px;
+                right: 10px;
+                left: 10px;
+                border-radius: 15px;
+                flex-direction: column;
+                padding: 15px;
+                gap: 10px;
+            }
+
+            .music-controls {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .volume-control {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .schedule-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Music Player -->
+    <div class="music-player">
+        <div class="music-info">
+            <i class="fas fa-music"></i>
+            <span>Worship Music</span>
+        </div>
+        <div class="music-controls">
+            <button class="music-btn" id="playBtn">
+                <i class="fas fa-play"></i>
+            </button>
+            <button class="music-btn" id="pauseBtn">
+                <i class="fas fa-pause"></i>
+            </button>
+        </div>
+        <div class="volume-control">
+            <i class="fas fa-volume-up"></i>
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-pray"></i>
+                <div>
+                    <h1>21 DAYS OF PRAYER</h1>
+                    <span>PCEA Makupa Church • 13th Jan - 1st Feb 2026</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#current" class="active"><i class="fas fa-cross"></i> Today's Prayer</a></li>
+                    <li><a href="#schedule"><i class="fas fa-calendar-alt"></i> Full Schedule</a></li>
+                    <li><a href="#about"><i class="fas fa-church"></i> About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>21 DAYS OF PRAYER AND FASTING</h2>
+        <div class="dates">13th January 2026 to 1st February 2026</div>
+        <div class="theme">
+            <i class="fas fa-door-open"></i>
+            THEME: OPEN DOOR
+            <i class="fas fa-door-open"></i>
+        </div>
+        <div class="verse-box">
+            "These are the words of the Holy One, the True One, He who has the key [to the house] of David, He who opens
+            and no one will [be able to] shut, and He who shuts and no one opens. I know your deeds. See, I have set
+            before you an open door which no one is able to shut, for you have a little power, and have kept My word,
+            and have not renounced or denied My name."
+            <div class="verse-ref">Revelation 3:7b-8</div>
+        </div>
+        <p style="font-size: 1.2rem; margin-top: 1.5rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <strong>Purpose:</strong> We are confident that God has Open Doors for us.
+        </p>
+    </section>
+
+    <!-- Current Day Section -->
+    <section class="current-day" id="current">
+        <div class="current-day-header">
+            <h3><i class="fas fa-calendar-day"></i> TODAY'S PRAYER FOCUS</h3>
+            <div class="today-date" id="todayDate">Loading date...</div>
+        </div>
+        <div class="day-card" id="todayCard">
+            <div class="day-title">
+                <i class="fas fa-praying-hands"></i>
+                <span id="dayTitle">Loading prayer focus...</span>
+            </div>
+            <div class="districts">
+                <h4><i class="fas fa-users"></i> Districts/Groups</h4>
+                <div class="district-tags" id="dayDistricts">
+                    <span class="district-tag">Loading...</span>
+                </div>
+            </div>
+            <div class="scripture">
+                <h4><i class="fas fa-bible"></i> Guiding Scriptures</h4>
+                <div class="scripture-container" id="dayScriptures">
+                    <!-- Scriptures will be loaded here -->
+                </div>
+            </div>
+            <div class="prayer-points">
+                <h4><i class="fas fa-cross"></i> Prayer Points</h4>
+                <ul id="dayPrayerPoints">
+                    <li>Loading prayer points...</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Navigation -->
+    <section class="schedule-nav" id="schedule">
+        <h3><i class="fas fa-calendar-week"></i> 21 DAYS SCHEDULE</h3>
+        <div class="day-filters" id="dayFilters">
+            <!-- Will be populated by JavaScript -->
+        </div>
+        <div class="schedule-cards" id="scheduleCards">
+            <!-- Will be populated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="about">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-church"></i>
+            </div>
+            <div class="church-name">P.C.E.A MAKUPA CHURCH</div>
+            <p>21 Days of Prayer and Fasting Program 2026</p>
+            <p>Theme: <strong>OPEN DOOR</strong></p>
+
+            <div class="footer-notes">
+                <h4><i class="fas fa-info-circle"></i> Important Notes:</h4>
+                <p>• Tuesday (20th and 27th): District members meet in their district venues for corporate prayers.</p>
+                <p>• All district members praying on specific days apart from Tuesday are encouraged to meet in the
+                    church for corporate prayers.</p>
+                <p>• Thursday fellowships will be dedicated to prayers; we are encouraged to attend.</p>
+                <p>• Every Sunday all members of the church will be praying and fasting. (Prayers to be done during the
+                    services)</p>
+                <p>• We have a Prayer retreat on 31st January 2026 at Mt Horeb, Mazeras.</p>
+            </div>
+
+            <p style="margin-top: 2rem; opacity: 0.8;">
+                <i class="fas fa-hands-praying"></i> May God bless you as you participate in this 21-day journey of
+                prayer and fasting.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Audio for background music -->
+    <audio id="backgroundMusic" loop>
+        <source src="https://assets.mixkit.co/music/preview/mixkit-inspiring-prayer-339.mp3" type="audio/mpeg">
+        <source src="https://assets.mixkit.co/music/preview/mixkit-spiritual-voice-1176.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // COMPLETE PRAYER SCHEDULE WITH ALL SCRIPTURES
+        const prayerSchedule = [
+            {
+                date: "2026-01-12",
+                day: "Monday",
+                focus: "Adoration & Thanksgiving",
+                districts: ["Youth", "Evangelism Team", "Intercessors"],
+                scriptures: [
+                    {
+                        reference: "PSALMS 107:1",
+                        text: "O give thanks to the LORD, for He is good; For His compassion and lovingkindness endure forever!"
+                    },
+                    {
+                        reference: "REVELATION 4:10-11",
+                        text: "The twenty-four elders fall down before Him who sits on the throne and worship Him who lives forever and ever, and cast their crowns before the throne, saying: 'You are worthy, O Lord, To receive glory and honor and power; For You created all things, And by Your will they exist and were created.'"
+                    },
+                    {
+                        reference: "PSALMS 27:4",
+                        text: "One thing I have desired of the LORD, that will I seek: That I may dwell in the house of the LORD All the days of my life, To behold the beauty of the LORD, And to inquire in His temple."
+                    }
+                ],
+                prayerPoints: [
+                    "Adore the King of Glory. For His Majesty who sits on the Throne of Glory & Mercy.",
+                    "Adore God for His Holiness, Power, Excellence Beauty the Light of the world.",
+                    "Thank God for His goodness and Mercy in your life, in Makupa in Kenya.",
+                    "Thank God for all His doings in 2025 and all the plans He has for us in 2026. Thank Him for the open doors.",
+                    "Thank God for the Reverends and their families, the Elders and all the leaders 2025-2026."
+                ]
+            },
+            {
+                date: "2026-01-13",
+                day: "Tuesday",
+                focus: "Repentance",
+                districts: ["All church members"],
+                scriptures: [
+                    {
+                        reference: "ISAIAH 1:18",
+                        text: "'Come now, and let us reason together,' Says the LORD. 'Though your sins are like scarlet, They shall be as white as snow; Though they are red like crimson, They shall be like wool.'"
+                    },
+                    {
+                        reference: "ISAIAH 1:15-16",
+                        text: "'So when you spread out your hands [in prayer, pleading for My help], I will hide My eyes from you; Yes, even though you offer many prayers, I will not be listening. Your hands are full of blood! Wash yourselves, make yourselves clean; Get your evil deeds out of My sight. Stop doing evil.'"
+                    },
+                    {
+                        reference: "ISAIAH 43:25",
+                        text: "'I, only I, am He who wipes out your transgressions for My own sake, And I will not remember your sins.'"
+                    }
+                ],
+                prayerPoints: [
+                    "Confession: Lord, I confess that my sins are red as scarlet. I admit I have sinned against you, Knowingly and Unknowingly. Sins of omissions and commission. (Take time to confess before the Lord)",
+                    "Repentance and turning from evil: Lord forgive me, cleanse me and make me as wool as per your promise.",
+                    "Father Clean my hands and make me pure and my prayers acceptable.",
+                    "Lord do not take us away from your presence.",
+                    "Repent for Church and Nation: Lord have Mercy on our Church. Turn your face to us and show us Mercy once more.",
+                    "Lord forgive our Ministers, Leaders and all the different churches in Kenya for failing to do what they ought to do and allowing lukewarmness in the Church.",
+                    "Lord forgive our nation for our unfaithfulness, abomination, corruption, greed and all the things we have done before you."
+                ]
+            },
+            {
+                date: "2026-01-14",
+                day: "Wednesday",
+                focus: "Affirmation & Declaration",
+                districts: ["Nyali South", "Nyali North", "Nyali Center", "Leisure"],
+                scriptures: [
+                    {
+                        reference: "ISAIAH 55:11",
+                        text: "So shall My word be that goes forth from My mouth; It shall not return to Me void, But it shall accomplish what I please, And it shall prosper in the thing for which I sent it."
+                    },
+                    {
+                        reference: "PSALMS 90:14",
+                        text: "Oh, satisfy us early with Your mercy, That we may rejoice and be glad all our days!"
+                    },
+                    {
+                        reference: "DEUTERONOMY 28:12",
+                        text: "The LORD will open to you His good treasure, the heavens, to give the rain to your land in its season, and to bless all the work of your hand. You shall lend to many nations, but you shall not borrow."
+                    },
+                    {
+                        reference: "PSALMS 34:10",
+                        text: "The young lions lack and suffer hunger; But those who seek the LORD shall not lack any good thing."
+                    },
+                    {
+                        reference: "EXODUS 23:25",
+                        text: "So you shall serve the LORD your God, and He will bless your bread and your water. And I will take sickness away from the midst of you."
+                    },
+                    {
+                        reference: "PSALMS 138:8",
+                        text: "The LORD will perfect that which concerns me; Your mercy, O LORD, endures forever; Do not forsake the works of Your hands."
+                    },
+                    {
+                        reference: "2 TIMOTHY 1:7",
+                        text: "For God has not given us a spirit of fear, but of power and of love and of a sound mind."
+                    },
+                    {
+                        reference: "PSALMS 125:2",
+                        text: "As the mountains surround Jerusalem, So the LORD surrounds His people From this time forth and forever."
+                    },
+                    {
+                        reference: "2 KINGS 6:16",
+                        text: "So he answered, 'Do not fear, for those who are with us are more than those who are with them.'"
+                    },
+                    {
+                        reference: "ISAIAH 8:18",
+                        text: "Here am I and the children whom the LORD has given me! We are for signs and wonders in Israel From the LORD of hosts, Who dwells in Mount Zion."
+                    },
+                    {
+                        reference: "DEUTERONOMY 28:13",
+                        text: "And the LORD will make you the head and not the tail; you shall be above only, and not be beneath, if you heed the commandments of the LORD your God, which I command you today, and are careful to observe them."
+                    }
+                ],
+                prayerPoints: [
+                    "Thank You Lord for your word is true and living I believe in it.",
+                    "Lord satisfy us early in the Year 2026 according to your word Psalms 90:14, in our Church, Families, Business, Finances and Ministry.",
+                    "We shall not lack; we shall lend to nations. We shall not lack food, Peace anything good as the Lord the God we serve is our provider according to His word in Deuteronomy 28:12 & Psalms 34:10",
+                    "We decree and declare that we shall walk in divine health in 2026 for the Lord is our healer and He will bless our food and water and take disease from our Midst in our Families, Church and Nation according to His word in Exodus 23:25",
+                    "We declare the Lord will perfect all that concerns us, as a Church, Family and Nation according to your word in Psalms 138:8",
+                    "We declare in 2026 we shall not walk in fear but in Power, and we will make sound decisions as the Lord has given us sound mind according to His word in 2 Timothy 1:7",
+                    "We declare as the mountains surround Jerusalem so the Lord surrounds us. We are covered and protected. Those who are for us are more than those against us according to the word in Psalms 125:2 and 2 Kings 6:16",
+                    "We are the head and not the tail, above and not beneath meant for signs and wonders successful and not failures according to the word in Isaiah 8:18, Deuteronomy 28:13"
+                ]
+            },
+            {
+                date: "2026-01-15",
+                day: "Thursday",
+                focus: "Divine Governance",
+                districts: ["Mishomoroni", "Vikwatani", "Kiembeni", "Makupa"],
+                scriptures: [
+                    {
+                        reference: "EPHESIANS 1:22",
+                        text: "And He put all things [in every realm] in subjection under Christ's feet, and appointed Him as [supreme and authoritative] head over all things in the church."
+                    },
+                    {
+                        reference: "1 TIMOTHY 2:1-2",
+                        text: "First of all, then, I urge that petitions (specific requests), prayers, intercessions (prayers for others) and thanksgivings be offered on behalf of all people, for kings and all who are in [positions of] high authority, so that we may live a peaceful and quiet life in all godliness and dignity."
+                    },
+                    {
+                        reference: "1 CORINTHIANS 12:12",
+                        text: "For as the body is one and has many members, but all the members of that one body, being many, are one body, so also is Christ."
+                    },
+                    {
+                        reference: "1 PETER 5:2",
+                        text: "Shepherd the flock of God which is among you, serving as overseers, not by compulsion but willingly, not for dishonest gain but eagerly."
+                    },
+                    {
+                        reference: "JOHN 17:21",
+                        text: "That they all may be one, as You, Father, are in Me, and I in You; that they also may be one in Us, that the world may believe that You sent Me."
+                    }
+                ],
+                prayerPoints: [
+                    "Thank God for all Heads of PCEA appointed by Christ to lead in this season.",
+                    "Pray all leadership Strategies, Plans & Decisions will be subjected under the authority of Christ.",
+                    "Pray that all Governance will be Godly, Beneficial, Productive to the body of Christ from head office to the LCC's.",
+                    "Ministration: Pray that the Leadership will be guided by the Holy Spirit on all the ministration activities in 2026. (1 Peter 5:2)",
+                    "Pray for fresh anointing and renewed commitment for all the ministers from the GA officials to the Rev's in the LCC's.",
+                    "Pray for God to empower our leaders in all things pertaining Godliness, Dignity, Integrity, Contentment and fear of God as they serve in the vineyard.",
+                    "Unity: Pray that God will give Unity and one voice to our church leaders from the GA to the Rev's in the LCC's.",
+                    "Pray against divisions, disagreements and disgrace among our leaders.",
+                    "Pray that we should be one PCEA, speaking one language for the Glory of God. (John 17:21)"
+                ]
+            },
+            {
+                date: "2026-01-16",
+                day: "Friday",
+                focus: "Divine Guidance",
+                districts: ["Buxton", "Shell", "TUM", "Sparki"],
+                scriptures: [
+                    {
+                        reference: "REVELATION 3:8",
+                        text: "I know your works, See, I have set before you an open door, and no one can shut it; for you have a little strength, have kept My word, and have not denied My name."
+                    },
+                    {
+                        reference: "ACTS 1:8",
+                        text: "But you shall receive power when the Holy Spirit has come upon you; and you shall be witnesses to Me in Jerusalem, and in all Judea and Samaria, and to the end of the earth."
+                    }
+                ],
+                prayerPoints: [
+                    "Thank God for the leadership of PCEA Makupa 2026 and all that God helped us achieve.",
+                    "Thank God for the Rev and his Family, all the Elders and their families and all members of the church.",
+                    "Pray for Divine guidance in all the plans, activities and groups in 2026.",
+                    "Pray for divine guidance and provision in all financial matters in 2026.",
+                    "Ministration: Pray for fresh outpouring of the Holy Spirit in all the members of the church.",
+                    "Pray for fresh anointing of the Holy Spirit on all the Preachers, Leaders and Ministers in all the services and fellowships in Makupa 2026.",
+                    "Pray that the Lord will restore the first love and open doors for mission and evangelism work to bring more souls to Christ.",
+                    "Pray for revival in the Church of Makupa.",
+                    "Pray for all revival meetings, visitations."
+                ]
+            },
+            {
+                date: "2026-01-17",
+                day: "Saturday",
+                focus: "Unity & Sanctification",
+                districts: ["Shimanzi", "City center", "Changamwe South and North", "Migadini"],
+                scriptures: [
+                    {
+                        reference: "PSALMS 133:1 & 3",
+                        text: "Behold, how good and how pleasant it is For brethren to dwell together in unity! It is like the dew of Hermon, Descending upon the mountains of Zion; For there the LORD commanded the blessing – Life forevermore."
+                    },
+                    {
+                        reference: "JUDE 1:22",
+                        text: "Now to Him who is able to keep you from stumbling, And to present you faultless Before the presence of His glory with exceeding joy."
+                    },
+                    {
+                        reference: "JOEL 2:13",
+                        text: "So rend your heart, and not your garments; Return to the LORD your God, For He is gracious and merciful, Slow to anger, and of great kindness; And He relents from doing harm."
+                    },
+                    {
+                        reference: "PSALMS 91:1-16",
+                        text: "He who dwells in the secret place of the Most High Shall abide under the shadow of the Almighty. I will say of the LORD, 'He is my refuge and my fortress; My God, in Him I will trust.'"
+                    },
+                    {
+                        reference: "2 PETER 3:18",
+                        text: "But grow in the grace and knowledge of our Lord and Savior Jesus Christ. To Him be the glory both now and forever. Amen."
+                    },
+                    {
+                        reference: "ISAIAH 53:5",
+                        text: "But He was wounded for our transgressions, He was bruised for our iniquities; The chastisement for our peace was upon Him, And by His stripes we are healed."
+                    }
+                ],
+                prayerPoints: [
+                    "Unity & Love: Pray for unity among the Session members.",
+                    "Pray for unity among all CBM leaders. Unity of Mind, Purpose and Direction according to God's will in 2026.",
+                    "Pray for unity in all District members that God will enable them work well in harmony with the Elders for Spiritual growth and achieve all the district plans for 2026 according to God's will. (2 Peter 3:18)",
+                    "Pray that we will not lose district members, but they will increase in numbers through our unity in the things of God for the Glory of God.",
+                    "Where there is unity God commands a blessing and that is the portion of Makupa in 2026.",
+                    "Sanctification: Pray that the Lord will help us to walk in righteousness and keep us away from evil.",
+                    "Pray we shall not have any other God, or worship any other God but Yahweh as a Church.",
+                    "Pray that we shall not conform to the patterns of this world, we shall compromise our faith, and we shall rend our hearts and our activities, thoughts and own desires.",
+                    "Divine Healing, Provision, Protection: Pray that we shall dwell under the shelter of the most High in 2026.",
+                    "Pray that the Lord will keep us away from pestilence and plague that destroys at midday. We are safe in the Lord.",
+                    "Pray that the Lord will be our refuge and fortress and we will fully trust Him to keep us safe in 2026.",
+                    "Declare that by His stripes we are healed. (Isaiah 53:5)"
+                ]
+            },
+            {
+                date: "2026-01-18",
+                day: "Sunday",
+                focus: "Open Doors",
+                districts: ["All Members"],
+                scriptures: [
+                    {
+                        reference: "ISAIAH 59:1",
+                        text: "Behold, the Lord's hand is not so short that it cannot save, Nor His ear so impaired That it cannot hear."
+                    },
+                    {
+                        reference: "REVELATION 3:8",
+                        text: "I know your deeds. See, I have set before you an open door which no one is able to shut, for you have a little power, and have kept My word, and have not renounced or denied My name."
+                    },
+                    {
+                        reference: "JOHN 14:13",
+                        text: "And whatsoever ye shall ask in My name, that will I do, that the Father may be glorified in the Son."
+                    }
+                ],
+                prayerPoints: [
+                    "Thank God for receiving our adoration and thanksgiving.",
+                    "Thank that His hand is stretched towards us.",
+                    "Thank God for hearing our confessions and giving us another opportunity to be in His presence and to be loved by Him.",
+                    "Thank God for His Word is true and as we stand with it all it was intended to do it will accomplish.",
+                    "Thank God for opening doors for the Makupa church and members in 2026.",
+                    "We believe we have open doors for ministry work; missions and many souls shall come to the saving grace of our Lord Jesus Christ.",
+                    "Declare there are new doors of opportunities, businesses, promotions, success.",
+                    "Declare open doors for revival/spiritual awakening.",
+                    "Thank God that there will be great breakthrough in the 21 days of prayer and fasting and that there will be signs, miracles and wonders."
+                ]
+            },
+            {
+                date: "2026-01-19",
+                day: "Monday",
+                focus: "Youths",
+                districts: ["Youth", "Evangelism team", "Intercessors"],
+                scriptures: [
+                    {
+                        reference: "1 JOHN 2:13",
+                        text: "I have written unto you, fathers, because ye have known Him that is from the beginning. I have written unto you, young men, because ye are strong, and the Word of God abides in you, and ye have overcome the wicked one."
+                    },
+                    {
+                        reference: "PSALMS 119:9",
+                        text: "How can a young man cleanse his way? By taking heed according to Your word."
+                    },
+                    {
+                        reference: "ECCLESIASTES 12:1",
+                        text: "Remember now your Creator in the days of your youth, Before the difficult days come, And the years draw near when you say, 'I have no pleasure in them.'"
+                    },
+                    {
+                        reference: "PSALMS 119:11",
+                        text: "Your word I have hidden in my heart, That I might not sin against You."
+                    },
+                    {
+                        reference: "MATTHEW 18:6",
+                        text: "But whoever causes one of these little ones who believe in Me to sin, it would be better for him if a millstone were hung around his neck, and he was drowned in the depths of the sea."
+                    }
+                ],
+                prayerPoints: [
+                    "Pray that the youths of Makupa will be strong and stand firm in all things saying no to drugs, sexual immorality, LGBTQ by Jesus.",
+                    "Pray that God will help them to stand firm and pursue their purpose and identity in Christ.",
+                    "Pray that the youths will be bold enough to receive salvation and declare His Word. (Eccl 12:1)",
+                    "Pray that the youths will have courage and strength to stand and say no to all ungodliness and walk in purity of mind, body and heart.",
+                    "Pray that the youths may be able to hide God's Word in their hearts that they might not sin against God and have wisdom in all they do. (Psalms 119:11)",
+                    "Pray that the Lord will help the youth get employment, divine provisions and cover to avoid any form of desperation.",
+                    "Pray that the Lord will give the youths strength to rise with wings like eagles whenever they are weary.",
+                    "Parents: Pray that parents will guide their children in words, actions and prayers and in doing God's will.",
+                    "Pray that parents will be used by God to identify youths going through issues and depression early so that they may help them seek help early."
+                ]
+            },
+            {
+                date: "2026-01-20",
+                day: "Tuesday",
+                focus: "Families",
+                districts: ["All district members"],
+                scriptures: [
+                    {
+                        reference: "AMOS 3:1-3",
+                        text: "Can two walk together, unless they are agreed?"
+                    },
+                    {
+                        reference: "PSALMS 127:1",
+                        text: "Unless the Lord builds the house, They labor in vain who build it; Unless the Lord guards the city, The watchman stays awake in vain."
+                    },
+                    {
+                        reference: "PSALMS 133:1-3",
+                        text: "Behold, how good and how pleasant it is for brethren to dwell together in unity! It is as the dew of Hermon, and as the dew that descended upon the mountains of Zion; for there the Lord commanded the blessing, even life for evermore."
+                    },
+                    {
+                        reference: "PHILIPPIANS 4:19",
+                        text: "But my God shall supply all your need, according to His riches in glory by Christ Jesus."
+                    },
+                    {
+                        reference: "JEREMIAH 17:8",
+                        text: "For he shall be like a tree planted by the waters, Which spreads out its roots by the river, And will not fear when heat comes; But its leaf will be green, And will not be anxious in the year of drought, Nor will cease from yielding fruit."
+                    },
+                    {
+                        reference: "ISAIAH 53:5",
+                        text: "But He was wounded for our transgressions, He was bruised for our iniquities; The chastisement for our peace was upon Him, And by His stripes we are healed."
+                    },
+                    {
+                        reference: "PSALMS 119:105",
+                        text: "Your word is a lamp to my feet And a light to my path."
+                    },
+                    {
+                        reference: "DEUTERONOMY 28:13",
+                        text: "And the LORD will make you the head and not the tail; you shall be above only, and not be beneath, if you heed the commandments of the LORD your God, which I command you today, and are careful to observe them."
+                    }
+                ],
+                prayerPoints: [
+                    "Relationship with God: Pray that God will have mercy on our families for walking away from His presence and purpose in life.",
+                    "Pray that our families will agree and walk with the Lord. (Psalms 119:105)",
+                    "Pray that our families will walk away from all ungodliness and serve only one God who is YAHWEH.",
+                    "That the foundations of our families and homes will be founded by the Lord.",
+                    "Unity: Pray for united families bound by cords of love.",
+                    "Pray against domestic violence, arguments, separation and divorce.",
+                    "Pray that out of the obedience of the unity the Lord will command a blessing over our families.",
+                    "Provision: Pray that the work of our families shall be blessed.",
+                    "Pray that we will bear fruits in season and out of season and we will not wither.",
+                    "Pray that the Lord will be our provider that we will not lack any good thing.",
+                    "Divine health and protection: Pray that when we walk through the fire and waters we shall not fear, for the Lord will watch over us.",
+                    "Pray against infirmity and any pestilence that lays waste by noonday or flies by night.",
+                    "We are the healed ones of God. We walk under the victory that was given to us at the cross.",
+                    "Declare that our children are for signs and wonders. They are covered by the blood of Jesus. They walk in divine favor, they are productive, they are the heads and not the tails (Deuteronomy 28:13) and shall not wither in the name of Jesus Christ."
+                ]
+            },
+            {
+                date: "2026-01-21",
+                day: "Wednesday",
+                focus: "Relevance (Church of Kenya)",
+                districts: ["Nyali South", "Nyali North", "Nyali Center", "Leisure"],
+                scriptures: [
+                    {
+                        reference: "PSALMS 92:10",
+                        text: "But my horn You have exalted like a wild ox; I have been anointed with fresh oil."
+                    },
+                    {
+                        reference: "PSALMS 24:3-4",
+                        text: "Who may ascend the mountain of the Lord? Who may stand in his holy place? The one who has clean hands and a pure heart, who does not trust in an idol or swear by a false god."
+                    }
+                ],
+                prayerPoints: [
+                    "Relevance: Pray that the Lord will lift horn of the church of Kenya to be respected and listened to for God's honor and glory.",
+                    "Pray that the Lord will protect and fight for the church of Kenya.",
+                    "Pray that the Lord will release a fresh anointing and fire in the church of Kenya that Kenya will be a hub of revival in this season.",
+                    "Integrity and Purity: Pray that the church of Christ in Kenya will gain back its position as far as integrity and purity is concerned.",
+                    "Pray that the church leaders will turn from all kinds of immorality, sorcery, corruption and all kinds of scandal and moral decay.",
+                    "Pray that the church will be bold to say no to all kinds of ungodliness and to stand against evil in society.",
+                    "Pray that the church will be able to be a guide to the nation's authorities and not conform to their patterns.",
+                    "Pray for love amongst church members and to those outside for it is the greatest commandment.",
+                    "Unity: Pray that the church will be united and speak one language."
+                ]
+            },
+            {
+                date: "2026-01-22",
+                day: "Thursday",
+                focus: "Governance and Leadership (Church in Kenya)",
+                districts: ["Mishomoroni", "Vikwatani", "Kiembeni", "Makupa"],
+                scriptures: [
+                    {
+                        reference: "1 TIMOTHY 2:1-2",
+                        text: "I exhort therefore, first of all, that supplications, prayers, intercessions, and giving of thanks be made for all men, for kings and for all who are in authority, that we may lead a quiet and peaceable life in all godliness and honesty."
+                    }
+                ],
+                prayerPoints: [
+                    "Governance and Leadership: Pray that God will direct the hearts of leaders to His will and purposes in their respective capacities.",
+                    "Pray for Godly leaders who fear God in the church of Kenya.",
+                    "Pray that the politicians of Kenya will not interfere with the running of the Kenyan churches and corrupt the leadership to conform to their ways.",
+                    "Pray that the church of Kenya will offer guidance to her people."
+                ]
+            },
+            {
+                date: "2026-01-23",
+                day: "Friday",
+                focus: "Being the Light (Church in the World)",
+                districts: ["Buxton", "Shell", "TUM", "Sparki"],
+                scriptures: [
+                    {
+                        reference: "ISAIAH 60:1",
+                        text: "Arise, shine; For your light has come! And the glory of the LORD is risen upon you."
+                    },
+                    {
+                        reference: "HABAKKUK 2:14",
+                        text: "For the earth will be filled With the knowledge of the glory of the LORD, As the waters cover the sea."
+                    },
+                    {
+                        reference: "ROMANS 4:3",
+                        text: "For what does the Scripture say? 'Abraham believed God, and it was accounted to him for righteousness.'"
+                    }
+                ],
+                prayerPoints: [
+                    "Being the Light: Pray that the church of the world will arise and shine in the midst of the darkness in the world.",
+                    "Pray that the church of the world will embrace Christ and His teachings and deviate from all ungodliness.",
+                    "Pray that the church will be an example in teachings, behavior and in character.",
+                    "Pray that the church will stand against all evils that led to the destruction of Sodom and Gomorrah: LGBTQ, sexual immorality, witchcraft, manipulation, corruption and terrorism; and stand to be counted as righteous (Romans 4:3)",
+                    "Glory: Pray that the church will live and walk in the fullness of God's glory.",
+                    "Pray that the glory of the Lord will be upon the church of the World.",
+                    "Pray that the Lord will move in a glorious way in year 2026 in signs, miracles and wonders that evidently come from the Lord.",
+                    "Pray that the voice of the Lord will be gloriously heard through the churches guiding national leaders and political leaders to the obedience of the Lord Jesus Christ in all they do.",
+                    "Pray that the church will have knowledge and understanding on how to bring peace to the nations of the world and take a role on the same (Iran, Gaza, Sudan)",
+                    "Unity: Pray that the church of the world will be united in the things of God and the direction to take as a church.",
+                    "Pray that the Holy Spirit will unite all the churches to have the same mind, speak one language and walk in the perfect will of God under Her Leader Jesus Christ."
+                ]
+            },
+            {
+                date: "2026-01-24",
+                day: "Saturday",
+                focus: "Peace (Nations of the World)",
+                districts: ["Shimanzi", "City center", "Changamwe (South & North)", "Migadini"],
+                scriptures: [
+                    {
+                        reference: "PSALMS 22:27",
+                        text: "All the ends of the world Shall remember and turn to the LORD, And all the families of the nations Shall worship before You."
+                    },
+                    {
+                        reference: "ISAIAH 2:4",
+                        text: "He shall judge between the nations, And rebuke many people; They shall beat their swords into plowshares, And their spears into pruning hooks; Nation shall not lift up sword against nation, Neither shall they learn war anymore."
+                    },
+                    {
+                        reference: "PROVERBS 6:16-19",
+                        text: "These six things the LORD hates, Yes, seven are an abomination to Him: A proud look, A lying tongue, Hands that shed innocent blood, A heart that devises wicked plans, Feet that are swift in running to evil, A false witness who speaks lies, And one who sows discord among brethren."
+                    }
+                ],
+                prayerPoints: [
+                    "Peace: Pray that all the nations will turn to the Lord and serve and worship Him and only Him.",
+                    "Pray that the nations of the world will stand in perfect peace with one another and keep away from provoking each other.",
+                    "Pray that the leaders of the nations shall lead their people with fear in reverence to the Lord, upholding justice, fairness, integrity and love for their peoples.",
+                    "Pray for the nations that are at war; Russia & Ukraine, Venezuela, Israel & other nations, Sudan, Congo, Myanmar, Syria, Ethiopia, Pakistan and Afghanistan, Haiti that God will help to ceasefire and for them to uphold peace.",
+                    "Pray for peace in Tanzania, Uganda for peaceful elections. Political stability in Somalia.",
+                    "Pray that the American government led by President Trump will receive wisdom from the Lord on how they handle issues of the world.",
+                    "Pray against racism in the nation of the world that we'll be together as one human race.",
+                    "Pray against all abominations in the nations of the world i.e. murder, idolatry, sexual immorality, greed, corruption, terrorism. (Proverbs 6:16-19)",
+                    "Pray against conflicts caused by natural resources i.e. crude oil, gold. Also pray for food security in the nations of the world."
+                ]
+            },
+            {
+                date: "2026-01-25",
+                day: "Sunday",
+                focus: "Conclusion",
+                districts: ["All church members"],
+                scriptures: [
+                    {
+                        reference: "ISAIAH 65:24",
+                        text: "It shall come to pass That before they call, I will answer; And while they are still speaking, I will hear."
+                    },
+                    {
+                        reference: "MATTHEW 7:7-8",
+                        text: "'Ask, and it will be given to you; seek, and you will find; knock, and it will be opened to you. For everyone who asks receives, and he who seeks finds, and to him who knocks it will be opened.'"
+                    },
+                    {
+                        reference: "JOSHUA 24:15",
+                        text: "And if it seems evil to you to serve the LORD, choose for yourselves this day whom you will serve, whether the gods which your fathers served that were on the other side of the River, or the gods of the Amorites, in whose land you dwell. But as for me and my house, we will serve the LORD."
+                    }
+                ],
+                prayerPoints: [
+                    "Thank God for He has heard the prayers of the past week.",
+                    "Thank God for the far He has brought us from the day prayers started to date.",
+                    "Thank God that our families in 2026 are walking in a different dimension.",
+                    "Thank God that our families are united and together with the children that the Lord has given us we will serve the Lord. (Joshua 24:15)",
+                    "Thank God that the church of PCEA will walk under the shadow of the Almighty.",
+                    "Thank God that the church of PCEA will be united, speak one language and be empowered in the year 2026.",
+                    "Thank God that the church of Kenya will have authority in year 2026 even as we prepare for elections.",
+                    "Thank God that the church of Kenya will keep away from every kind of confusion in the political arena, corruption and lack of integrity in year 2026.",
+                    "Pray that the changes proposed in registering of churches in Kenya and proof of miracle will only go according to the will of God with no human interference.",
+                    "Thank God for the global church that it will rise up and shine for the glory of the Lord.",
+                    "Pray that the church of the world will stand firm against all evils and obey the voice of the Lord as He guides us.",
+                    "Pray that the global church will be a city set on a hill that will not be hidden but shall continue to shine.",
+                    "Thank God that our neighbours will live in peace and the peace will extend even to us.",
+                    "Thank God for the settlement of Tanzania politically and economically; that God will raise a man who fears YAHWEH in the leadership.",
+                    "Thank God for the peace of the nations that the Lord will intervene in all the nations affected by war, natural calamities and He will be a Father to the fatherless, and the Husband to the widows left after wars.",
+                    "Thank God for the 21 days of prayer that God will pour His grace abundantly to continue.",
+                    "Pray for the prayer retreat that the Lord will provide resources for the same."
+                ]
+            },
+            {
+                date: "2026-01-26",
+                day: "Monday",
+                focus: "Leaders (Nation of Kenya)",
+                districts: ["Youth", "Evangelism Team", "Intercessors"],
+                scriptures: [
+                    {
+                        reference: "PROVERBS 21:1",
+                        text: "The king's heart is in the hand of the LORD, Like the rivers of water; He turns it wherever He wishes."
+                    },
+                    {
+                        reference: "1 TIMOTHY 2:1-2",
+                        text: "Therefore I exhort first of all that supplications, prayers, intercessions, and giving of thanks be made for all men, for kings and all who are in authority, that we may lead a quiet and peaceable life in all godliness and reverence."
+                    },
+                    {
+                        reference: "AMOS 5:24",
+                        text: "But let justice run down like water, And righteousness like a mighty stream."
+                    },
+                    {
+                        reference: "AMOS 4:1-2",
+                        text: "Hear this word, you cows of Bashan, who are on the mountain of Samaria, Who oppress the poor, Who crush the needy, Who say to your husbands, 'Bring wine, let us drink!' The Lord GOD has sworn by His holiness: 'Behold, the days shall come upon you When He will take you away with fishhooks, And your posterity with fishhooks.'"
+                    }
+                ],
+                prayerPoints: [
+                    "Thank God for all the leaders in different positions (1 Timothy 2:1-2)",
+                    "Pray for the President and the deputy president unity of purpose and wisdom in all they do in leading the nation.",
+                    "Pray that the Leaders of Kenya will be sensitive to the leading of the Lord.",
+                    "Pray that the Lord will uphold every leader in the government and turn their hearts towards Him forgiving their sins.",
+                    "Pray for Kenyan leaders to pursue justice, fairness and integrity in their responsibilities.",
+                    "Pray that the leaders of Kenya will protect the widows, the poor and the orphans and put measures to protect its people.",
+                    "Pray that the leadership will distribute national resources equally in all corners of Kenya without favoritism.",
+                    "Pray that the leaders will be united with one goal to grow the country.",
+                    "Pray against extrajudicial killings, abductions and eliminations.",
+                    "Pray that the leaders of Kenya will value who elected them.",
+                    "Pray that above all the leaders of Kenya will fear God."
+                ]
+            },
+            {
+                date: "2026-01-27",
+                day: "Tuesday",
+                focus: "Peace & Unity (Nation of Kenya)",
+                districts: ["All members"],
+                scriptures: [
+                    {
+                        reference: "COLOSSIANS 3:14",
+                        text: "Beyond all these things put on and wrap yourselves in [unselfish] love, which is the perfect bond of unity [for everything is bound together in agreement when each one seeks the best for others]."
+                    },
+                    {
+                        reference: "PSALMS 33:12",
+                        text: "Blessed is the nation whose God is the LORD, The people He has chosen as His own inheritance."
+                    },
+                    {
+                        reference: "PROVERBS 10:22",
+                        text: "The blessing of the LORD brings [true] riches, And He adds no sorrow to it [for it comes as a blessing from God]."
+                    },
+                    {
+                        reference: "DEUTERONOMY 28:8",
+                        text: "The LORD will command the blessing upon you in your storehouses and in all that you undertake, and He will bless you in the land which the LORD your God gives you."
+                    },
+                    {
+                        reference: "DEUTERONOMY 8:18",
+                        text: "But thou shalt remember the LORD thy God; for it is He that giveth thee power to get wealth, that He may establish His covenant which He swore unto thy fathers, as it is this day."
+                    }
+                ],
+                prayerPoints: [
+                    "Peace and Unity: Thank God for the nation of Kenya for the peace and unity that we experience thus far.",
+                    "Pray that the Lord will unite all Kenyans with their ethnic differences and religious backgrounds.",
+                    "Pray against ethnic clashes in Kenya. Pray for peace in Pokot, Narok, Turkana, Borana, etc.",
+                    "Climate: Pray against natural calamities i.e. landslides, floods, drought.",
+                    "Pray against destructive rains that the Lord will give us enough rains in every season.",
+                    "Pray against climatic diseases in every region in Kenya.",
+                    "Agriculture and Food Production: Pray that the Lord will help Kenya to produce enough food to feed her people.",
+                    "Pray against pests and any destruction of crops and livestock.",
+                    "Pray for responsible use of resources including soil among others.",
+                    "Pray that God will restore depleted lands and give the farmers wisdom to use sustainable practices that preserve the soil/resources for future generations.",
+                    "Pray for food security and food supply chain.",
+                    "Pray that farmers will receive a good return of the works of their hands.",
+                    "Pray against oppression from the middlemen (cartels), that the farmers will benefit the more.",
+                    "Economy: Thank God for Kenya's economy thus far and the stability of the shilling we have continued to achieve.",
+                    "Pray against the spirit of corruption in Kenya.",
+                    "Pray against fraud and introduction of fraudulent funds into the economy of Kenya, that the Lord will protect us from international sanctions."
+                ]
+            },
+            {
+                date: "2026-01-28",
+                day: "Wednesday",
+                focus: "Wisdom (Ministry of Education)",
+                districts: ["Nyali South", "Nyali North", "Nyali Center", "Leisure"],
+                scriptures: [
+                    {
+                        reference: "PROVERBS 4:7",
+                        text: "Wisdom is the principal thing, therefore get wisdom; and with all thy, get understanding."
+                    },
+                    {
+                        reference: "PROVERBS 9:10",
+                        text: "The fear of the LORD is the beginning of wisdom, And the knowledge of the Holy One is understanding."
+                    },
+                    {
+                        reference: "PROVERBS 1:7",
+                        text: "The fear of the LORD is the beginning of knowledge, But fools despise wisdom and instruction."
+                    },
+                    {
+                        reference: "PSALMS 125:2",
+                        text: "As the mountains surround Jerusalem, So the LORD surrounds His people From this time forth and forever."
+                    }
+                ],
+                prayerPoints: [
+                    "Wisdom: Thank God for the ministry of education and the CBE program that has been running.",
+                    "Thank God for all the leaders in the ministry of education.",
+                    "Pray that the Lord will give the leaders wisdom as they align the curriculum and school activities for the year 2026.",
+                    "Pray for wisdom among the heads of schools and teachers as they continue to guide the students.",
+                    "Pray that the schools will get new and innovative ways of helping students going through crisis in the different stages in life.",
+                    "Safety and Security: Pray that our children will be safe in schools both day and boarding schools.",
+                    "Pray against fires, strikes, thefts and accidents as students travel and as they are involved in different school activities.",
+                    "Morality & Fear of God: Pray that the children and students in school will fear God.",
+                    "Pray against sexual immorality i.e. LGBTQ, fornication and pornography amongst students.",
+                    "Pray against abuse of drugs amongst students.",
+                    "Pray for the fear of God amongst teachers and also amongst students.",
+                    "Pray against rebellion amongst students.",
+                    "Students: Thank God for all the students and especially those who have sat for the national examinations.",
+                    "Pray for all the students in all levels of education that their minds will be focused and they will excel."
+                ]
+            },
+            {
+                date: "2026-01-29",
+                day: "Thursday",
+                focus: "Jesus the Healer (Ministry of Health)",
+                districts: ["Mishomoroni", "Vikwatan", "Kiembeni", "Makupa"],
+                scriptures: [
+                    {
+                        reference: "EXODUS 15:26",
+                        text: "and said, 'If you diligently heed the voice of the LORD your God and do what is right in His sight, give ear to His commandments and keep all His statutes, I will put none of the diseases on you which I have brought on the Egyptians. For I am the LORD who heals you.'"
+                    }
+                ],
+                prayerPoints: [
+                    "Jesus the Healer: Thank God for the ministry of health and all the hospitals in Kenya.",
+                    "Thank God for the ministry leaders and pray that God will fill them with His wisdom in fulfilling their responsibilities.",
+                    "Pray that the Lord Jesus Christ will take over the ministry of Health in Kenya, lead and guide all the leaders, medical practitioners and the government in all the decisions made.",
+                    "Pray that the Lord will give wisdom to KEMRI and all researchers that Kenya will be a hub of medical innovations and interventions.",
+                    "Pray for all the medical practitioners to be in good health and of sound mind as they continue with their duties.",
+                    "Policies and Decisions: Pray that SHA will work effectively.",
+                    "Pray for godly policies in the ministry.",
+                    "Pray that the government will uphold quality healthcare and service delivery in hospitals.",
+                    "Pray that even after devolution the national government will follow up the hospitals in different regions to ensure they are well funded and offer quality treatment to the citizens.",
+                    "Pray for provision of all the essential medication in the country and in all our hospitals.",
+                    "Pray that the government will make good decisions to ensure there are no strikes.",
+                    "Pray that the church will raise witnesses that are decision makers in the ministry of health.",
+                    "Pray for motivated practitioners in the hospitals of Kenya.",
+                    "Pray that the Lord will protect Kenya from the increase of chronic diseases like cancer, HIV/AIDS etc."
+                ]
+            },
+            {
+                date: "2026-01-30",
+                day: "Friday",
+                focus: "Parastatals and Other Ministries",
+                districts: ["Buxton", "Shell", "TUM", "Sparki"],
+                scriptures: [
+                    {
+                        reference: "AMOS 4:1-2",
+                        text: "Hear this word, you cows of Bashan, who are on the mountain of Samaria, Who oppress the poor, Who crush the needy, Who say to your husbands, 'Bring wine, let us drink!' The Lord GOD has sworn by His holiness: 'Behold, the days shall come upon you When He will take you away with fishhooks, And your posterity with fishhooks.'"
+                    }
+                ],
+                prayerPoints: [
+                    "Thank God for all the other 19 ministries and all the parastatals and corporations fueling our economy and providing job opportunities.",
+                    "Pray that the Lord will forgive the leaders in the parastatals some for being greedy and perverting justice.",
+                    "Pray for proper management and stewardship of resources by the ministry leaders and the leaders of the parastatals.",
+                    "Pray for wisdom in plans for privatization of parastatals.",
+                    "Pray for godly men and women to work in the ministries and parastatals."
+                ]
+            },
+            {
+                date: "2026-01-31",
+                day: "Saturday",
+                focus: "Judiciary & Kenya Police",
+                districts: ["All church members (prayer retreat)"],
+                scriptures: [
+                    {
+                        reference: "DEUTERONOMY 16:18-20",
+                        text: "You shall appoint judges and officers in all your gates, which the LORD your God gives you, according to your tribes, and they shall judge the people with just judgment. You shall not pervert justice; you shall not show partiality, nor take a bribe, for a bribe blinds the eyes of the wise and twists the words of the righteous. You shall follow what is altogether just, that you may live and inherit the land which the LORD your God is giving you."
+                    }
+                ],
+                prayerPoints: [
+                    "Judiciary: Pray that Judiciary will be an independent arm of government.",
+                    "Pray that justice will prevail in the courts.",
+                    "Pray against corruption in our Judicial system.",
+                    "Pray that every Kenya will be listened to, understood and judged fairly.",
+                    "Pray for all the people that have been unfairly jailed that the Lord will have mercy on them.",
+                    "Police: Pray that the police officers will serve the Lord in their service.",
+                    "Pray against corruption in the police force.",
+                    "Pray for the government to take care of the police officers ensuring they have good housing, salaries and needs are well met."
+                ]
+            },
+            {
+                date: "2026-02-01",
+                day: "Sunday",
+                focus: "Conclusion of 21 Days",
+                districts: ["All church members"],
+                scriptures: [
+                    {
+                        reference: "PSALMS 91:15",
+                        text: "He shall call upon Me, and I will answer him; I will be with him in trouble; I will deliver him and honor him."
+                    },
+                    {
+                        reference: "JEREMIAH 33:3",
+                        text: "Call to Me, and I will answer you, and show you great and mighty things, which you do not know."
+                    }
+                ],
+                prayerPoints: [
+                    "Thank God for the far He has brought us for the 21 days of prayer and fasting.",
+                    "Thank God for every answered prayer for we believe He has answered.",
+                    "We believe that 2026 is a year of open doors and He who called us is faithful and He will do it."
+                ]
+            }
+        ];
+
+        // Music Player Functionality
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        const playBtn = document.getElementById('playBtn');
+        const pauseBtn = document.getElementById('pauseBtn');
+        const volumeSlider = document.getElementById('volumeSlider');
+
+        playBtn.addEventListener('click', () => {
+            backgroundMusic.play();
+        });
+
+        pauseBtn.addEventListener('click', () => {
+            backgroundMusic.pause();
+        });
+
+        volumeSlider.addEventListener('input', (e) => {
+            backgroundMusic.volume = e.target.value;
+        });
+
+        // Set initial volume
+        backgroundMusic.volume = 0.5;
+
+        // Date and Time Functions
+        function formatDate(date) {
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            return date.toLocaleDateString('en-US', options);
+        }
+
+        function getCurrentDayIndex() {
+            // Find today's date in the schedule or default to day 1
+            const today = new Date();
+            const todayStr = today.toISOString().split('T')[0];
+
+            for (let i = 0; i < prayerSchedule.length; i++) {
+                if (prayerSchedule[i].date === todayStr) {
+                    return i;
+                }
+            }
+
+            return 0;
+        }
+
+        // Display Today's Prayer
+        function displayTodayPrayer() {
+            const todayDate = document.getElementById('todayDate');
+            const dayTitle = document.getElementById('dayTitle');
+            const dayDistricts = document.getElementById('dayDistricts');
+            const dayScriptures = document.getElementById('dayScriptures');
+            const dayPrayerPoints = document.getElementById('dayPrayerPoints');
+
+            const today = new Date();
+            todayDate.textContent = formatDate(today);
+
+            // Get today's prayer
+            const dayIndex = getCurrentDayIndex();
+            const todayPrayer = prayerSchedule[dayIndex];
+
+            dayTitle.textContent = `${todayPrayer.day} - ${todayPrayer.focus}`;
+
+            // Display districts
+            dayDistricts.innerHTML = '';
+            todayPrayer.districts.forEach(district => {
+                const tag = document.createElement('span');
+                tag.className = 'district-tag';
+                tag.textContent = district;
+                dayDistricts.appendChild(tag);
+            });
+
+            // Display ALL scriptures
+            dayScriptures.innerHTML = '';
+            todayPrayer.scriptures.forEach(scripture => {
+                const scriptureBox = document.createElement('div');
+                scriptureBox.className = 'scripture-box';
+                scriptureBox.innerHTML = `
+                    <div class="scripture-ref">
+                        <i class="fas fa-book-bible"></i>
+                        ${scripture.reference}
+                    </div>
+                    <div class="scripture-text">${scripture.text}</div>
+                `;
+                dayScriptures.appendChild(scriptureBox);
+            });
+
+            // Display prayer points
+            dayPrayerPoints.innerHTML = '';
+            todayPrayer.prayerPoints.forEach(point => {
+                const li = document.createElement('li');
+                li.textContent = point;
+                dayPrayerPoints.appendChild(li);
+            });
+        }
+
+        // Display Schedule Cards
+        function displaySchedule() {
+            const scheduleCards = document.getElementById('scheduleCards');
+            const dayFilters = document.getElementById('dayFilters');
+
+            // Create day filters
+            const daysOfWeek = ['All', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+            daysOfWeek.forEach(day => {
+                const filter = document.createElement('button');
+                filter.className = 'day-filter';
+                if (day === 'All') filter.classList.add('active');
+                filter.textContent = day;
+                filter.addEventListener('click', () => filterSchedule(day));
+                dayFilters.appendChild(filter);
+            });
+
+            // Create schedule cards
+            prayerSchedule.forEach((day, index) => {
+                const card = document.createElement('div');
+                card.className = 'schedule-card';
+                if (index === getCurrentDayIndex()) card.classList.add('active');
+
+                // Format date for display
+                const date = new Date(day.date);
+                const dayNum = date.getDate();
+                const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                const month = monthNames[date.getMonth()];
+
+                card.innerHTML = `
+                    <div class="schedule-date">${dayNum} ${month} • ${day.day}</div>
+                    <div class="schedule-focus">${day.focus}</div>
+                    <div class="schedule-groups">${day.districts.join(', ')}</div>
+                `;
+
+                card.addEventListener('click', () => displayDayDetails(index));
+                scheduleCards.appendChild(card);
+            });
+        }
+
+        // Filter schedule by day
+        function filterSchedule(day) {
+            const cards = document.querySelectorAll('.schedule-card');
+            const filters = document.querySelectorAll('.day-filter');
+
+            filters.forEach(filter => {
+                if (filter.textContent === day) {
+                    filter.classList.add('active');
+                } else {
+                    filter.classList.remove('active');
+                }
+            });
+
+            cards.forEach(card => {
+                const cardDay = card.querySelector('.schedule-date').textContent.split('•')[1].trim();
+                if (day === 'All' || cardDay === day) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Display day details when card is clicked
+        function displayDayDetails(index) {
+            const day = prayerSchedule[index];
+
+            // Update the current day section
+            document.getElementById('dayTitle').textContent = `${day.day} - ${day.focus}`;
+
+            const dayDistricts = document.getElementById('dayDistricts');
+            dayDistricts.innerHTML = '';
+            day.districts.forEach(district => {
+                const tag = document.createElement('span');
+                tag.className = 'district-tag';
+                tag.textContent = district;
+                dayDistricts.appendChild(tag);
+            });
+
+            // Display ALL scriptures
+            const dayScriptures = document.getElementById('dayScriptures');
+            dayScriptures.innerHTML = '';
+            day.scriptures.forEach(scripture => {
+                const scriptureBox = document.createElement('div');
+                scriptureBox.className = 'scripture-box';
+                scriptureBox.innerHTML = `
+                    <div class="scripture-ref">
+                        <i class="fas fa-book-bible"></i>
+                        ${scripture.reference}
+                    </div>
+                    <div class="scripture-text">${scripture.text}</div>
+                `;
+                dayScriptures.appendChild(scriptureBox);
+            });
+
+            const dayPrayerPoints = document.getElementById('dayPrayerPoints');
+            dayPrayerPoints.innerHTML = '';
+            day.prayerPoints.forEach(point => {
+                const li = document.createElement('li');
+                li.textContent = point;
+                dayPrayerPoints.appendChild(li);
+            });
+
+            // Update date to show selected day
+            const dateParts = day.date.split('-');
+            const selectedDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);
+            document.getElementById('todayDate').textContent = formatDate(selectedDate);
+
+            // Update active card
+            document.querySelectorAll('.schedule-card').forEach((card, i) => {
+                if (i === index) {
+                    card.classList.add('active');
+                } else {
+                    card.classList.remove('active');
+                }
+            });
+
+            // Scroll to top
+            document.querySelector('.current-day').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            displayTodayPrayer();
+            displaySchedule();
+
+            // Auto-play music after user interaction
+            document.body.addEventListener('click', () => {
+                if (backgroundMusic.paused) {
+                    backgroundMusic.play().catch(e => console.log("Autoplay prevented:", e));
+                }
+            }, { once: true });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Update active nav link based on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
