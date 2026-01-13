@@ -380,67 +380,7 @@
             opacity: 0.9;
         }
 
-        /* Music Player */
-        .music-player {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(15, 52, 96, 0.95);
-            padding: 15px;
-            border-radius: 50px;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
-            border: 2px solid var(--accent);
-        }
-
-        .music-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--light);
-            font-weight: 500;
-        }
-
-        .music-controls {
-            display: flex;
-            gap: 10px;
-        }
-
-        .music-btn {
-            background: var(--accent);
-            border: none;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            color: var(--secondary);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .music-btn:hover {
-            background: var(--gold);
-            transform: scale(1.1);
-        }
-
-        .volume-control {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .volume-control input {
-            width: 80px;
-        }
-
+        
         /* Footer */
         footer {
             background: rgba(10, 25, 47, 0.95);
@@ -502,54 +442,14 @@
                 text-align: center;
             }
 
-            .music-player {
-                bottom: 10px;
-                right: 10px;
-                left: 10px;
-                border-radius: 15px;
-                flex-direction: column;
-                padding: 15px;
-                gap: 10px;
-            }
-
-            .music-controls {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .volume-control {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .schedule-cards {
-                grid-template-columns: 1fr;
-            }
+            
         }
+
+        
     </style>
 </head>
 
 <body>
-    <!-- Music Player -->
-    <div class="music-player">
-        <div class="music-info">
-            <i class="fas fa-music"></i>
-            <span>Worship Music</span>
-        </div>
-        <div class="music-controls">
-            <button class="music-btn" id="playBtn">
-                <i class="fas fa-play"></i>
-            </button>
-            <button class="music-btn" id="pauseBtn">
-                <i class="fas fa-pause"></i>
-            </button>
-        </div>
-        <div class="volume-control">
-            <i class="fas fa-volume-up"></i>
-            <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
-        </div>
-    </div>
-
     <!-- Header -->
     <header>
         <div class="header-content">
@@ -1390,24 +1290,7 @@
             }
         ];
 
-        // Music Player Functionality
-        const backgroundMusic = document.getElementById('backgroundMusic');
-        const playBtn = document.getElementById('playBtn');
-        const pauseBtn = document.getElementById('pauseBtn');
-        const volumeSlider = document.getElementById('volumeSlider');
-
-        playBtn.addEventListener('click', () => {
-            backgroundMusic.play();
-        });
-
-        pauseBtn.addEventListener('click', () => {
-            backgroundMusic.pause();
-        });
-
-        volumeSlider.addEventListener('input', (e) => {
-            backgroundMusic.volume = e.target.value;
-        });
-
+        
         // Set initial volume
         backgroundMusic.volume = 0.5;
 
