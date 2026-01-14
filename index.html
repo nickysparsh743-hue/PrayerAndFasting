@@ -22,6 +22,7 @@
             --gold: #ffd700;
             --success: #2ecc71;
             --scripture: #e74c3c;
+            --warning: #f39c12;
         }
 
         body {
@@ -51,6 +52,7 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .logo {
@@ -104,6 +106,95 @@
             background: var(--accent);
             color: var(--secondary);
             transform: translateY(-2px);
+        }
+
+        /* Print Button Section */
+        .print-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .countdown-box {
+            background: rgba(255, 215, 0, 0.15);
+            border: 2px solid var(--gold);
+            border-radius: 10px;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            min-width: 200px;
+        }
+
+        .countdown-days {
+            color: var(--gold);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .print-btn {
+            background: linear-gradient(135deg, var(--accent), #2a9d8f);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(76, 201, 240, 0.3);
+        }
+
+        .print-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 201, 240, 0.4);
+            background: linear-gradient(135deg, #2a9d8f, var(--accent));
+        }
+
+        .print-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Print Styles */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            
+            .print-section,
+            nav,
+            .schedule-nav,
+            footer {
+                display: none !important;
+            }
+            
+            .current-day,
+            .current-day * {
+                visibility: visible;
+            }
+            
+            .current-day {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                background: white !important;
+                color: black !important;
+            }
+            
+            .day-card {
+                box-shadow: none !important;
+                border: 1px solid #ddd !important;
+                page-break-inside: avoid;
+            }
+            
+            .hero {
+                display: none;
+            }
         }
 
         /* Hero Section */
@@ -427,6 +518,11 @@
                 justify-content: center;
             }
 
+            .print-section {
+                justify-content: center;
+                width: 100%;
+            }
+
             .hero h2 {
                 font-size: 2.2rem;
             }
@@ -445,6 +541,17 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        @media (max-width: 480px) {
+            .print-section {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .countdown-box {
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 
@@ -459,6 +566,19 @@
                     <span>PCEA Makupa Church • 13th Jan - 1st Feb 2026</span>
                 </div>
             </div>
+            
+            <div class="print-section">
+                <div class="countdown-box">
+                    <i class="fas fa-clock"></i>
+                    <span>Days Remaining:</span>
+                    <span class="countdown-days" id="countdownDays">21</span>
+                </div>
+                <button class="print-btn" id="printBtn">
+                    <i class="fas fa-print"></i>
+                    Print Today's Schedule
+                </button>
+            </div>
+            
             <nav>
                 <ul>
                     <li><a href="#current" class="active" id="todayLink"><i class="fas fa-cross"></i> Today's Prayer</a>
@@ -1321,6 +1441,195 @@
             return Math.min(currentDayOfMonth - 12, prayerSchedule.length - 1);
         }
 
+        // Calculate days remaining
+        function calculateDaysRemaining() {
+            const today = new Date();
+            const scheduleEnd = new Date('2026-02-01');
+            
+            // Reset times to compare only dates
+            today.setHours(0, 0, 0, 0);
+            scheduleEnd.setHours(0, 0, 0, 0);
+            
+            const timeDiff = scheduleEnd.getTime() - today.getTime();
+            const daysRemaining = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            
+            // Ensure days remaining is between 0 and 21
+            return Math.max(0, Math.min(daysRemaining, 21));
+        }
+
+        // Update countdown display
+        function updateCountdown() {
+            const daysRemaining = calculateDaysRemaining();
+            const countdownElement = document.getElementById('countdownDays');
+            
+            if (daysRemaining === 0) {
+                countdownElement.textContent = "0 - Last Day!";
+                countdownElement.style.color = "var(--gold)";
+            } else if (daysRemaining === 1) {
+                countdownElement.textContent = "1 - Final Day";
+                countdownElement.style.color = "var(--warning)";
+            } else {
+                countdownElement.textContent = daysRemaining;
+                countdownElement.style.color = "var(--gold)";
+            }
+        }
+
+        // Print functionality
+        function setupPrintButton() {
+            const printBtn = document.getElementById('printBtn');
+            
+            printBtn.addEventListener('click', function() {
+                // Update the print header with current information
+                const dayIndex = getCurrentDayIndex();
+                const todayPrayer = prayerSchedule[dayIndex];
+                const scheduleDate = new Date(todayPrayer.date);
+                const formattedDate = formatDate(scheduleDate);
+                
+                // Create a print-friendly version
+                const printWindow = window.open('', '_blank');
+                printWindow.document.write(`
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <title>21 Days Prayer - ${todayPrayer.day} ${todayPrayer.date}</title>
+                        <style>
+                            body {
+                                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                                line-height: 1.6;
+                                color: #333;
+                                max-width: 800px;
+                                margin: 0 auto;
+                                padding: 20px;
+                            }
+                            .print-header {
+                                text-align: center;
+                                border-bottom: 3px solid #0f3460;
+                                padding-bottom: 20px;
+                                margin-bottom: 30px;
+                            }
+                            .print-header h1 {
+                                color: #0f3460;
+                                margin-bottom: 5px;
+                            }
+                            .print-date {
+                                color: #4cc9f0;
+                                font-weight: bold;
+                                font-size: 1.2em;
+                                margin: 10px 0;
+                            }
+                            .day-title {
+                                color: #0f3460;
+                                font-size: 1.5em;
+                                margin: 20px 0 10px;
+                                border-bottom: 2px solid #4cc9f0;
+                                padding-bottom: 5px;
+                            }
+                            .section-title {
+                                color: #0f3460;
+                                margin-top: 25px;
+                                margin-bottom: 10px;
+                                font-size: 1.2em;
+                            }
+                            .district-tag {
+                                background: #16213e;
+                                color: white;
+                                padding: 5px 10px;
+                                border-radius: 15px;
+                                margin-right: 8px;
+                                margin-bottom: 8px;
+                                display: inline-block;
+                                font-size: 0.9em;
+                            }
+                            .scripture-box {
+                                background: #f8f9fa;
+                                border-left: 4px solid #e74c3c;
+                                padding: 15px;
+                                margin: 15px 0;
+                                border-radius: 5px;
+                            }
+                            .scripture-ref {
+                                color: #e74c3c;
+                                font-weight: bold;
+                                margin-bottom: 8px;
+                            }
+                            .prayer-points li {
+                                margin-bottom: 10px;
+                                padding-left: 20px;
+                                position: relative;
+                            }
+                            .prayer-points li:before {
+                                content: "•";
+                                position: absolute;
+                                left: 0;
+                                color: #4cc9f0;
+                                font-weight: bold;
+                                font-size: 1.2em;
+                            }
+                            .footer-note {
+                                margin-top: 30px;
+                                padding-top: 20px;
+                                border-top: 1px solid #ddd;
+                                font-style: italic;
+                                color: #666;
+                                text-align: center;
+                            }
+                            @media print {
+                                body {
+                                    font-size: 12pt;
+                                }
+                                .day-title {
+                                    page-break-after: avoid;
+                                }
+                                .scripture-box {
+                                    page-break-inside: avoid;
+                                }
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="print-header">
+                            <h1>21 DAYS OF PRAYER AND FASTING</h1>
+                            <div class="print-date">PCEA Makupa Church • ${formattedDate}</div>
+                            <div style="color: #666;">Theme: OPEN DOOR (Revelation 3:7b-8)</div>
+                        </div>
+                        
+                        <div class="day-title">${todayPrayer.day} - ${todayPrayer.focus}</div>
+                        
+                        <div class="section-title">Districts/Groups</div>
+                        <div>${todayPrayer.districts.map(district => `<span class="district-tag">${district}</span>`).join('')}</div>
+                        
+                        <div class="section-title">Guiding Scriptures</div>
+                        ${todayPrayer.scriptures.map(scripture => `
+                            <div class="scripture-box">
+                                <div class="scripture-ref">${scripture.reference}</div>
+                                <div>${scripture.text}</div>
+                            </div>
+                        `).join('')}
+                        
+                        <div class="section-title">Prayer Points</div>
+                        <ul class="prayer-points">
+                            ${todayPrayer.prayerPoints.map(point => `<li>${point}</li>`).join('')}
+                        </ul>
+                        
+                        <div class="footer-note">
+                            Printed on ${formatDate(new Date())} • P.C.E.A Makupa Church 21 Days Prayer Program 2026
+                        </div>
+                        
+                        <script>
+                            window.onload = function() {
+                                window.print();
+                                setTimeout(function() {
+                                    window.close();
+                                }, 1000);
+                            };
+                        <\/script>
+                    </body>
+                    </html>
+                `);
+                printWindow.document.close();
+            });
+        }
+
         // Display Today's Prayer
         function displayTodayPrayer() {
             const todayDate = document.getElementById('todayDate');
@@ -1376,6 +1685,9 @@
 
             // Update active schedule card
             updateActiveScheduleCard(dayIndex);
+            
+            // Update countdown
+            updateCountdown();
         }
 
         // Display Schedule Cards
@@ -1533,6 +1845,10 @@
         document.addEventListener('DOMContentLoaded', () => {
             displayTodayPrayer();
             displaySchedule();
+            setupPrintButton();
+            
+            // Update countdown every day
+            setInterval(updateCountdown, 60000); // Update every minute
         });
 
         // Smooth scrolling for navigation links
