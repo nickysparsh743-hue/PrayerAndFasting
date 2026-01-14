@@ -380,7 +380,6 @@
             opacity: 0.9;
         }
 
-        
         /* Footer */
         footer {
             background: rgba(10, 25, 47, 0.95);
@@ -442,10 +441,10 @@
                 text-align: center;
             }
 
-            
+            .schedule-cards {
+                grid-template-columns: 1fr;
+            }
         }
-
-        
     </style>
 </head>
 
@@ -462,7 +461,8 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#current" class="active"><i class="fas fa-cross"></i> Today's Prayer</a></li>
+                    <li><a href="#current" class="active" id="todayLink"><i class="fas fa-cross"></i> Today's Prayer</a>
+                    </li>
                     <li><a href="#schedule"><i class="fas fa-calendar-alt"></i> Full Schedule</a></li>
                     <li><a href="#about"><i class="fas fa-church"></i> About</a></li>
                 </ul>
@@ -561,12 +561,6 @@
             </p>
         </div>
     </footer>
-
-    <!-- Audio for background music -->
-    <audio id="backgroundMusic" loop>
-        <source src="https://assets.mixkit.co/music/preview/mixkit-inspiring-prayer-339.mp3" type="audio/mpeg">
-        <source src="https://assets.mixkit.co/music/preview/mixkit-spiritual-voice-1176.mp3" type="audio/mpeg">
-    </audio>
 
     <script>
         // COMPLETE PRAYER SCHEDULE WITH ALL SCRIPTURES
@@ -1290,10 +1284,6 @@
             }
         ];
 
-        
-        // Set initial volume
-        backgroundMusic.volume = 0.5;
-
         // Date and Time Functions
         function formatDate(date) {
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -1301,17 +1291,34 @@
         }
 
         function getCurrentDayIndex() {
-            // Find today's date in the schedule or default to day 1
             const today = new Date();
             const todayStr = today.toISOString().split('T')[0];
 
-            for (let i = 0; i < prayerSchedule.length; i++) {
-                if (prayerSchedule[i].date === todayStr) {
-                    return i;
+            // Check if today is within the prayer schedule dates (Jan 12 - Feb 1, 2026)
+            const scheduleStart = new Date('2026-01-12');
+            const scheduleEnd = new Date('2026-02-01');
+
+            if (today >= scheduleStart && today <= scheduleEnd) {
+                // Find exact match for today's date
+                for (let i = 0; i < prayerSchedule.length; i++) {
+                    if (prayerSchedule[i].date === todayStr) {
+                        return i;
+                    }
+                }
+
+                // If no exact match, find the closest date that has passed
+                for (let i = prayerSchedule.length - 1; i >= 0; i--) {
+                    const scheduleDate = new Date(prayerSchedule[i].date);
+                    if (today >= scheduleDate) {
+                        return i;
+                    }
                 }
             }
 
-            return 0;
+            // If outside schedule dates or no match found, show the current day based on real date
+            // This is for testing/demo purposes
+            const currentDayOfMonth = today.getDate();
+            return Math.min(currentDayOfMonth - 12, prayerSchedule.length - 1);
         }
 
         // Display Today's Prayer
@@ -1323,11 +1330,15 @@
             const dayPrayerPoints = document.getElementById('dayPrayerPoints');
 
             const today = new Date();
-            todayDate.textContent = formatDate(today);
+            const todayStr = today.toISOString().split('T')[0];
 
             // Get today's prayer
             const dayIndex = getCurrentDayIndex();
             const todayPrayer = prayerSchedule[dayIndex];
+
+            // Update the date display to show the schedule date, not necessarily "today"
+            const scheduleDate = new Date(todayPrayer.date);
+            todayDate.textContent = formatDate(scheduleDate);
 
             dayTitle.textContent = `${todayPrayer.day} - ${todayPrayer.focus}`;
 
@@ -1362,6 +1373,9 @@
                 li.textContent = point;
                 dayPrayerPoints.appendChild(li);
             });
+
+            // Update active schedule card
+            updateActiveScheduleCard(dayIndex);
         }
 
         // Display Schedule Cards
@@ -1384,7 +1398,7 @@
             prayerSchedule.forEach((day, index) => {
                 const card = document.createElement('div');
                 card.className = 'schedule-card';
-                if (index === getCurrentDayIndex()) card.classList.add('active');
+                card.dataset.index = index;
 
                 // Format date for display
                 const date = new Date(day.date);
@@ -1398,8 +1412,27 @@
                     <div class="schedule-groups">${day.districts.join(', ')}</div>
                 `;
 
-                card.addEventListener('click', () => displayDayDetails(index));
+                card.addEventListener('click', () => {
+                    displayDayDetails(index);
+                    // Update Today's Prayer link to show selected day
+                    document.getElementById('todayLink').innerHTML = '<i class="fas fa-cross"></i> Selected Day';
+                });
                 scheduleCards.appendChild(card);
+            });
+
+            // Set initial active card
+            const currentDayIndex = getCurrentDayIndex();
+            updateActiveScheduleCard(currentDayIndex);
+        }
+
+        // Update active schedule card
+        function updateActiveScheduleCard(index) {
+            document.querySelectorAll('.schedule-card').forEach((card, i) => {
+                if (i === index) {
+                    card.classList.add('active');
+                } else {
+                    card.classList.remove('active');
+                }
             });
         }
 
@@ -1472,46 +1505,53 @@
             document.getElementById('todayDate').textContent = formatDate(selectedDate);
 
             // Update active card
-            document.querySelectorAll('.schedule-card').forEach((card, i) => {
-                if (i === index) {
-                    card.classList.add('active');
-                } else {
-                    card.classList.remove('active');
-                }
-            });
+            updateActiveScheduleCard(index);
 
             // Scroll to top
             document.querySelector('.current-day').scrollIntoView({ behavior: 'smooth' });
         }
 
+        // Reset to Today's prayer when Today link is clicked
+        document.getElementById('todayLink').addEventListener('click', function (e) {
+            e.preventDefault();
+
+            // Reset the link text
+            this.innerHTML = '<i class="fas fa-cross"></i> Today\'s Prayer';
+
+            // Show today's prayer
+            displayTodayPrayer();
+
+            // Scroll to section
+            document.querySelector('.current-day').scrollIntoView({ behavior: 'smooth' });
+
+            // Update navigation
+            document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+            this.classList.add('active');
+        });
+
         // Initialize the page
         document.addEventListener('DOMContentLoaded', () => {
             displayTodayPrayer();
             displaySchedule();
-
-            // Auto-play music after user interaction
-            document.body.addEventListener('click', () => {
-                if (backgroundMusic.paused) {
-                    backgroundMusic.play().catch(e => console.log("Autoplay prevented:", e));
-                }
-            }, { once: true });
         });
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+            if (anchor.id !== 'todayLink') {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
 
-                document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-                this.classList.add('active');
+                    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+                    this.classList.add('active');
 
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
 
-                if (targetSection) {
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            }
         });
 
         // Update active nav link based on scroll
